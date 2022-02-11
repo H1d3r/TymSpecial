@@ -1,10 +1,8 @@
 # TymSpecial
 
 ```
-usage: TymSpecial.py [-h] --input FILE --method NUMBER --out FILENAME [--etw]
-                     [--hideconsole] [--domainjoined] [--longsleep]
-                     [--processors NUMBER] [--ram NUMBER] [--parent PROCESS]
-                     [--child PROCESS] [--clonesig FILE]
+usage: TymSpecial.py [-h] --input FILE --method NUMBER --out FILENAME [--etw] [--hideconsole] [--domainjoined] [--longsleep]
+                     [--processors NUMBER] [--ram NUMBER] [--parent PROCESS] [--child PROCESS] [--clonesig FILE]
 
 Shellcode loader which offers multiple execution methods via syscalls and anti-sandboxing options to evade AV & EDR products.
 
