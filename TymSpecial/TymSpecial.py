@@ -1,3 +1,5 @@
+# TO DO: implement sigthief for signature cloning, remove RWX permissions since not debugging anymore, add module stomping for method 3, make sure all-antisandbox checks work
+
 import argparse
 import random
 import string
