@@ -3,7 +3,10 @@
 ### Requirements
 ---
 TymSpecial requires Python3 and x86_64-w64-mingw32-g++ cross compiler
+---
 
+### Description
+insert info about injection options, purple teaming use cases, patching etw, 
 
 
 ```
@@ -61,6 +64,9 @@ Example Execution: C:\>threadhijacker.exe 20485
 ## To Do:
 
 - [ ] Implement module stomping
+- [ ] Add the option to compile to a DLL
 - [ ] Incorporate SigThief for signature cloning
 - [ ] Change memory permissions to RX from RWX
 - [ ] Debug anti-sandbox methods
+- [ ] Add unhooking of NTDLL
+- [ ] Get rid of netapi32.dll
