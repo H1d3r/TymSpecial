@@ -66,7 +66,7 @@ stub1 = """
 #include "lm.h"
 #pragma comment(lib, "netapi32.lib")
 
-unsigned char shellcode = SHELLCODE_REPLACE
+unsigned char shellcode[] = SHELLCODE_REPLACE
 
 size_t shellcode_len = sizeof(shellcode);
 
