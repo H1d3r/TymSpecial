@@ -1,5 +1,9 @@
 # TymSpecial Shellcode Loader
 
+### Requirements
+---
+TymSpecial requires Python3 and x86_64-w64-mingw32-g++ cross compiler
+
 
 
 ```
@@ -56,7 +60,7 @@ Example Execution: C:\>threadhijacker.exe 20485
 
 ## To Do:
 
-- [ ] Implement module stomping for method 3
+- [ ] Implement module stomping
 - [ ] Incorporate SigThief for signature cloning
 - [ ] Change memory permissions to RX from RWX
 - [ ] Debug anti-sandbox methods
