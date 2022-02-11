@@ -1,5 +1,10 @@
 # TymSpecial Shellcode Loader
 
+### Credits
+---
+- Insert credits here - syswhispers, sektor7, etc...
+
+---
 ### Requirements
 ---
 - Python3
