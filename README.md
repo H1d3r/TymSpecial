@@ -1,4 +1,7 @@
-# TymSpecial
+# TymSpecial Shellcode Loader
+
+
+### explanation of how it works here...
 
 ```
 usage: TymSpecial.py [-h] --input FILE --method NUMBER --out FILENAME [--etw] [--hideconsole] [--domainjoined] [--longsleep]
