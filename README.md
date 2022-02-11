@@ -56,7 +56,7 @@ Example Execution: C:\>threadhijacker.exe 20485
 
 ## To Do:
 
-- [] Implement module stomping for method 3
-- [] Incorporate SigThief for signature cloning
-- [] Change memory permissions to RX from RWX
-- [] Debug anti-sandbox methods
+- [ ] Implement module stomping for method 3
+- [ ] Incorporate SigThief for signature cloning
+- [ ] Change memory permissions to RX from RWX
+- [ ] Debug anti-sandbox methods
