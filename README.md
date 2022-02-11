@@ -12,8 +12,9 @@
 
 ---
 ### Description
-insert info about injection options, purple teaming use cases, patching etw, etc...
+insert info about injection options, purple teaming use cases (thread not backed by file on disk), patching etw, etc...
 why some payloads dont always execute - APCs / Threads in alertable state....
+inject into process DA is running instead of dump LSASS
 
 ---
 ### Usage
