@@ -2,7 +2,8 @@
 
 ### Requirements
 ---
-TymSpecial requires Python3 and x86_64-w64-mingw32-g++ cross compiler
+- Python3
+- x86_64-w64-mingw32-g++ cross compiler
 
 ---
 ### Description
