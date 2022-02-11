@@ -796,7 +796,6 @@ int main() {
         //RAMREPLACEram();
         //LONGSLEEPREPLACEskipSleep();
         //WINDOWHIDERShowWindow(GetConsoleWindow(), SW_HIDE);
-        HANDLE target = getHandle(PID);
         //PATCHETWREPLACEpatchETW();
         //PATCHETWREMOTEREPLACEpatchETWRemote(target);
         run();
