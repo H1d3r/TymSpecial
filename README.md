@@ -7,8 +7,10 @@
 
 ---
 ### Description
-insert info about injection options, purple teaming use cases, patching etw, 
+insert info about injection options, purple teaming use cases, patching etw, etc...
 
+---
+### Usage
 
 ```
 usage: TymSpecial.py [-h] --input FILE --method NUMBER --out FILENAME [--etw] [--hideconsole] [--domainjoined] [--longsleep]
@@ -71,3 +73,4 @@ Example Execution: C:\>threadhijacker.exe 20485
 - [ ] Debug anti-sandbox methods
 - [ ] Add unhooking of NTDLL
 - [ ] Get rid of netapi32.dll
+- [ ] Add credits
