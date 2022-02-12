@@ -6,7 +6,12 @@ This project was made as a way for myself to learn C++ and gain insight into how
 
 TymSpecial is a shellcode loader which utilizes SysWhispers to make direct syscalls and avoid user-land hooks. The loader takes raw x64 stageless shellcode as input which is then XOR encrypted with a random key and writes a temporary C++ stub to disk and is compiled via g++ to produce an executable. 
 
-TymSpecial offers multiple methods of execution via classic thread injection, Windows callback functions, APC queues, and thread hijacking. Additonally, there is an option to patch EtwEventWrite in the local and remote process and there are 4 anti-sandboxing checks which can enabled including: checking if the system is domain joined, has < X GB of RAM, has < Y processors, and if long sleeps are fast-forwarded. 
+TymSpecial offers multiple methods of execution via classic thread injection, Windows callback functions, APC queues, and thread hijacking. Additonally, there is an option to patch EtwEventWrite in the local and remote process and there are 4 anti-sandboxing checks which can enabled including:
+
+- Is the system domain joined?
+- Does the system have < X GB of RAM?
+- Does the system have < Y processors?
+- Are long sleeps fast forwarded?
 
 ### Usage
 ---
