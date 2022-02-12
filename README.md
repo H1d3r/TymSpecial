@@ -42,34 +42,6 @@ Example Usage: python3 TymSpecial.py --input file.bin --method 6 --domainjoined 
 Example Execution: C:\>threadhijacker.exe 20485
 ```
 
-### Technical Details
----
-EDR, XDR, MDR, (insert a letter followed by DR) products are considered to be the "Next-gen" Antivirus and continue to make it increasily difficult for pentesters, red teamers, and adversaries to execute malware on target systems. These products generally make use of the following sources to collect telemetry and prevent malicous activity:
-
-- API Hooking
-- Kernel Callbacks
-- ETW
-- Static & Dynamic Analysis
-
-To execute shellcode generally 3 steps are needed which include allocating memory, moving shellcode into that memory, and then executing the shellcode. 
-
-This can be performed via numberous Windows APIs such as VirtualAlloc, WriteProcessMemory, and CreateThread. However, what is important to understand is that these APIs do not directly interact with the Windows OS, but instead call lower level APIs, which then call APIs within the Kernel.
-
-In the below diagram which I stole from [here](https://www.oreilly.com/library/view/learning-malware-analysis/9781788392501/8aa60d1d-3efa-48bf-8fdc-2e3028b0401e.xhtml), we can see the WriteFile API which is found in Kernel32.dll, calls the NtWriteFile API which is found in ntdll.dll, which then calls NtWriteFile in Ntoskrnl.exe (Kernel).
-
-![1.png](/images/1_APIFlow.png)
-
-API hooking involves EDR products loading a DLL into spawned processes and then "hooking" commonly abused APIs such as CreateRemoteThread with a JMP instruction (Not all hooking methods are the same), when the API is called it will hit the JMP instruction which then redirects the flow of the program to the EDR which will determine if the call is safe or not.
-
-Below ew can see an example of BitDefender hooking the NtQueueApcThread API and additionally it's DLLs loaded into the process:
-
-![2.png](/images/2_APIHook.png)
-
-![3.png](/images/APILOAD.png)
-
-
-
-
 ### Requirements
 ---
 - Python3
