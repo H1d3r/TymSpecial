@@ -51,9 +51,13 @@ EDR, XDR, MDR, (insert a letter followed by DR) products are considered to be th
 - ETW
 - Static & Dynamic Analysis
 
-In order to execute shellcode generally 3 steps are needed which include allocating memory, moving shellcode into that memory, and then executing the shellcode. This can be performed via numberous Windows APIs such as VirtualAlloc, WriteProcessMemory, and CreateThread. What is important to understand is that these APIs do not directly interact with the Windows OS, but instead call lower level APIs, which then call APIs within the Kernel.
+To execute shellcode generally 3 steps are needed which include allocating memory, moving shellcode into that memory, and then executing the shellcode. This can be performed via numberous Windows APIs such as VirtualAlloc, WriteProcessMemory, and CreateThread. However, what is important to understand is that these APIs do not directly interact with the Windows OS, but instead call lower level APIs, which then call APIs within the Kernel.
 
-[here](https://www.oreilly.com/library/view/learning-malware-analysis/9781788392501/8aa60d1d-3efa-48bf-8fdc-2e3028b0401e.xhtml)
+In the below diagram which I stole from [here](https://www.oreilly.com/library/view/learning-malware-analysis/9781788392501/8aa60d1d-3efa-48bf-8fdc-2e3028b0401e.xhtml), we can see the WriteFile API which is found in Kernel32.dll, calls the NtWriteFile API which is found in ntdll.dll, which then calls NtWriteFile in Ntoskrnl.exe (Kernel).
+
+![1.png](/images/1_APIFlow.png)
+
+A method EDR products can use to detect malicous activity is "hooking" commonly abused APIs such as CreateRemoteThread with a JMP instruction, so that when the API is called the flow of the program is redirected to the EDR where it determines if the call is safe or not.  
 
 ### Requirements
 ---
