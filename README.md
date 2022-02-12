@@ -1,5 +1,6 @@
 # TymSpecial Shellcode Loader
 
+
 ### Description
 ---
 This project was made as a way for myself to learn C++ and gain insight into how EDR products work.
@@ -12,6 +13,7 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 - Does the system have < X GB of RAM?
 - Does the system have < Y processors?
 - Are long sleeps fast forwarded?
+
 
 ### Usage
 ---
@@ -47,6 +49,7 @@ Example Usage: python3 TymSpecial.py --input file.bin --method 6 --domainjoined 
 Example Execution: C:\>threadhijacker.exe 20485
 ```
 
+
 ### Requirements
 ---
 - Python3
@@ -60,6 +63,7 @@ Example Execution: C:\>threadhijacker.exe 20485
 - [Sektor7 Malware Development Courses](https://institute.sektor7.net/)
 - [SysWhispers2BOF](https://github.com/FalconForceTeam/SysWhispers2BOF) & [SysWhispers2](https://github.com/jthuraisamy/SysWhispers2)
 - [ired.team](https://www.ired.team/)
+
 
 ## To Do:
 ---
