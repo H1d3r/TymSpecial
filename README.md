@@ -2,19 +2,11 @@
 
 ### Description
 ---
-This project was made as a way for myself to learn C++ and potentially be able to provide value on purple team engagements.
+This project was made as a way for myself to learn C++ and gain insight into how EDR products work.
 
 TymSpecial is a shellcode loader which utilizes SysWhispers to make direct syscalls to avoid user-land hooks. The loader takes raw x64 stageless shellcode as input which is then XOR encrypted with a random key and writes a temporary C++ stub to disk and is compiled via g++ to produce an executable. 
 
 TymSpecial offers multiple methods of execution via classic thread injection, Windows callback functions, APC queues, and thread hijacking. Additonally, there is an option to patch EtwEventWrite in the local and remote process and there are 4 anti-sandboxing checks which can enabled including checking if the system is domain joined, has < X GB of RAM, has < Y processors, and if long sleeps are fast-forwarded. 
-
-### Technical Details
----
-
-### Requirements
----
-- Python3
-- x86_64-w64-mingw32-g++ cross compiler
 
 ### Usage
 ---
@@ -49,6 +41,25 @@ optional arguments:
 Example Usage: python3 TymSpecial.py --input file.bin --method 6 --domainjoined --ram 8 --processors 4 --hideconsole --clonesig C:\\chad\\Desktop\\RealFile.exe --out threadhijacker
 Example Execution: C:\>threadhijacker.exe 20485
 ```
+
+### Technical Details
+---
+EDR, XDR, MDR, (insert a letter followed by DR) products are considered to be the "Next-gen" Antivirus and continue to make it increasily difficult for pentesters, red teamers, and adversaries to execute malware on target systems. These products generally make use of the following sources to collect telemetry and prevent malicous activity:
+
+- API Hooking
+- Kernel Callbacks
+- ETW
+- Static & Dynamic Analysis
+
+In order to execute shellcode generally 3 steps are needed which include allocating memory, moving shellcode into that memory, and then executing the shellcode. This can be performed via numberous Windows APIs such as VirtualAlloc, WriteProcessMemory, and CreateThread. What is important to understand is that these APIs do not directly interact with the Windows OS, but instead call lower level APIs, which then call APIs within the Kernel.
+
+[here](https://www.oreilly.com/library/view/learning-malware-analysis/9781788392501/8aa60d1d-3efa-48bf-8fdc-2e3028b0401e.xhtml)
+
+### Requirements
+---
+- Python3
+- x86_64-w64-mingw32-g++ cross compiler
+
 
 ### Credits / References
 ---
