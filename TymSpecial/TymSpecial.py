@@ -1,4 +1,3 @@
-# TO DO: implement sigthief for signature cloning, remove RWX permissions since not debugging anymore, add module stomping for method 3, make sure all-antisandbox checks work
 
 import argparse
 import random
@@ -10,22 +9,12 @@ import io
 description = """
 Shellcode loader which offers multiple execution methods via syscalls and anti-sandboxing options to evade AV & EDR products.
 
-   _____   __  __ 
-  / ____| |  \/  |
- | |      | \  / |
- | |      | |\/| |
- | |____  | |  | |
-  \_____| |_|  |_|
-  
-   @ChadMotivation
-
   --method 1 = [LOCAL] Execute shellcode in the local process via the Windows callback function EnumSystemLocalesA
   --method 2 = [LOCAL] Queue an APC in the local process via NtQueueApcThread, and then flush the queue via NtTestAlert
   --method 3 = [INJECTION] Create a thread in a remote process via NtCreateThreadEx (Note: Module Stomping not yet implemented)
   --method 4 = [INJECTION] Spawn a process in a suspended state with a spoofed PPID and queue an APC into the main thread via NtQueueApcThread, then resume the process via NtResumeThread to execute the APC
   --method 5 = [INJECTION] Iterate and queue an APC into every thread in a remote process via NtQueueApcThread
   --method 6 = [INJECTION] Suspend a thread in a remote process via NtSuspendThread, update the thread's RIP register to point to the shellcode via NtGetContextThread & NtSetContextThread, then resume the thread via NtResumeThread
-  
 """
 
 epilog = """
