@@ -14,10 +14,11 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 - Does the system have < Y processors?
 - Are long sleeps fast forwarded?
 
-#### Use cases include:
+#### Use cases:
 
-- Purple team engagements to provide a variety of execution techniques 
-- Inject into an existing process owned by a privileged user to avoid interacting with LSASS
+- Provide a variety of malware techniques on purple team engagements
+- Inject into an existing process owned by a more privileged user to avoid interacting with LSASS
+- Inject into an existing process which normally produces network activity (web browsers, svchost, etc.) to blend C2 traffic 
 
 #### Note: 
 
