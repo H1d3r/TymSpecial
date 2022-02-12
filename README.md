@@ -42,8 +42,8 @@ optional arguments:
   --longsleep          Anti-Sandbox Check: Sleep for 90s, if <75s have passed, exit
   --processors NUMBER  Anti-Sandbox Check: If the number of processors is < X, exit
   --ram NUMBER         Anti-Sandbox Check: If the amount of RAM is < X GB, exit
-  --parent PROCESS     Specify the parent process for PPID spoofing, example --parent explorer.exe
-  --child PROCESS      Specify the process to spawn for injection into, example: --child svchost.exe
+  --parent PROCESS     Specify the parent process for PPID spoofing in method 4, example --parent explorer.exe
+  --child PROCESS      Specify the process to spawn for injection into in method 4, example: --child svchost.exe
   --clonesig FILE      Specify a signed file to use for signature cloning, example: --clonesig C:\\chad\\Desktop\\SignedFile.exe
 
 Example Usage: python3 TymSpecial.py --input file.bin --method 6 --domainjoined --ram 8 --processors 4 --hideconsole --clonesig C:\\chad\\Desktop\\RealFile.exe --out threadhijacker
