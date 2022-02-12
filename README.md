@@ -14,6 +14,11 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 - Does the system have < Y processors?
 - Are long sleeps fast forwarded?
 
+#### Use cases include:
+
+- Purple team engagements to provide a variety of execution techniques 
+- Inject into an existing process owned by a privileged user to avoid interacting with LSASS
+
 #### Note: 
 
 - Self-decrypting shellcode is not supported as memory is allocated with RW permissions and then changed to RX after the shellcode has been written into memory to avoid RWX memory pages. 
