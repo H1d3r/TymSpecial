@@ -1,12 +1,6 @@
 # TymSpecial Shellcode Loader
 
 
-### Requirements
----
-- Python3
-- x86_64-w64-mingw32-g++ cross compiler
-
-
 ### Description
 ---
 This project was made as a way for myself to learn C++ and gain insight into how EDR products work.
@@ -31,6 +25,12 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 - Self-decrypting shellcode is not supported as memory is allocated with RW permissions and then changed to RX after the shellcode has been written into memory to avoid RWX memory pages. 
 
 - Method 5 is not always guaranteed to work and should be targeted against processes with a high thread count and I/O. This is because APCs will not execute until the thread is in an alertable state. Within a local process such as method 1 this is not an issue as we can can force threads into an alertable state via NtTestAlert, however, forcing a remote process to flush it's APC queues is not possible. Additionally, because an APC is queued into every thread it is likely you will get multiple callbacks.
+
+
+### Requirements
+---
+- Python3
+- x86_64-w64-mingw32-g++ cross compiler
 
 
 ### Usage
