@@ -33,7 +33,6 @@ Shellcode loader which offers multiple execution methods via syscalls and anti-s
   --method 5 = [INJECTION] Iterate and queue an APC into every thread in a remote process via NtQueueApcThread
   --method 6 = [INJECTION] Suspend a thread in a remote process via NtSuspendThread, update the thread's RIP register to point to the shellcode via NtGetContextThread & NtSetContextThread, then resume the thread via NtResumeThread
   
-
 optional arguments:
   -h, --help           show this help message and exit
   --input FILE         File containing shellcode, usually a .bin, example: --input shellcode.bin
