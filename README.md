@@ -51,13 +51,23 @@ EDR, XDR, MDR, (insert a letter followed by DR) products are considered to be th
 - ETW
 - Static & Dynamic Analysis
 
-To execute shellcode generally 3 steps are needed which include allocating memory, moving shellcode into that memory, and then executing the shellcode. This can be performed via numberous Windows APIs such as VirtualAlloc, WriteProcessMemory, and CreateThread. However, what is important to understand is that these APIs do not directly interact with the Windows OS, but instead call lower level APIs, which then call APIs within the Kernel.
+To execute shellcode generally 3 steps are needed which include allocating memory, moving shellcode into that memory, and then executing the shellcode. 
+
+This can be performed via numberous Windows APIs such as VirtualAlloc, WriteProcessMemory, and CreateThread. However, what is important to understand is that these APIs do not directly interact with the Windows OS, but instead call lower level APIs, which then call APIs within the Kernel.
 
 In the below diagram which I stole from [here](https://www.oreilly.com/library/view/learning-malware-analysis/9781788392501/8aa60d1d-3efa-48bf-8fdc-2e3028b0401e.xhtml), we can see the WriteFile API which is found in Kernel32.dll, calls the NtWriteFile API which is found in ntdll.dll, which then calls NtWriteFile in Ntoskrnl.exe (Kernel).
 
 ![1.png](/images/1_APIFlow.png)
 
-A method EDR products can use to detect malicous activity is "hooking" commonly abused APIs such as CreateRemoteThread with a JMP instruction, so that when the API is called the flow of the program is redirected to the EDR where it determines if the call is safe or not.  
+API hooking involves EDR products loading a DLL into spawned processes and then "hooking" commonly abused APIs such as CreateRemoteThread with a JMP instruction (Not all hooking methods are the same), when the API is called it will hit the JMP instruction which then redirects the flow of the program to the EDR which will determine if the call is safe or not.
+
+Below ew can see an example of BitDefender hooking the NtQueueApcThread API and additionally it's DLLs loaded into the process:
+
+![2.png](/images/2_APIHook.png)
+
+
+
+
 
 ### Requirements
 ---
