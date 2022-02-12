@@ -1,6 +1,12 @@
 # TymSpecial Shellcode Loader
 
 
+### Requirements
+---
+- Python3
+- x86_64-w64-mingw32-g++ cross compiler
+
+
 ### Description
 ---
 This project was made as a way for myself to learn C++ and gain insight into how EDR products work.
@@ -60,12 +66,6 @@ optional arguments:
 Example Usage: python3 TymSpecial.py --input file.bin --method 6 --domainjoined --ram 8 --processors 4 --hideconsole --clonesig C:\\chad\\Desktop\\RealFile.exe --out threadhijacker
 Example Execution: C:\>threadhijacker.exe 20485
 ```
-
-
-### Requirements
----
-- Python3
-- x86_64-w64-mingw32-g++ cross compiler
 
 
 ### Credits / References
