@@ -26,15 +26,6 @@ usage: TymSpecial.py [-h] --input FILE --method NUMBER --out FILENAME [--etw] [-
 
 Shellcode loader which offers multiple execution methods via syscalls and anti-sandboxing options to evade AV & EDR products.
 
-   _____   __  __ 
-  / ____| |  \/  |
- | |      | \  / |
- | |      | |\/| |
- | |____  | |  | |
-  \_____| |_|  |_|
-  
-   @ChadMotivation
-
   --method 1 = [LOCAL] Execute shellcode in the local process via the Windows callback function EnumSystemLocalesA
   --method 2 = [LOCAL] Queue an APC in the local process via NtQueueApcThread, and then flush the queue via NtTestAlert
   --method 3 = [INJECTION] Create a thread in a remote process via NtCreateThreadEx (Note: Module Stomping not yet implemented)
