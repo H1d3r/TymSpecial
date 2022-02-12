@@ -75,4 +75,4 @@ Example Execution: C:\>threadhijacker.exe 20485
 ---
 - [ ] Implement module stomping
 - [ ] Incorporate SigThief for signature cloning
-- [ ] Add unhooking of NTDLL
+- [ ] Add the option to unhook ntdll
