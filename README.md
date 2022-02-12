@@ -65,6 +65,7 @@ Below ew can see an example of BitDefender hooking the NtQueueApcThread API and 
 
 ![2.png](/images/2_APIHook.png)
 
+![3.png](/images/APILOAD.png)
 
 
 
