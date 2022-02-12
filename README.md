@@ -14,7 +14,7 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 - Does the system have < Y processors?
 - Are long sleeps fast forwarded?
 
-Cautions: 
+##### Note: 
 
 - Self-decrypting shellcode is not supported as memory is allocated with RW permissions and then changed to RX after the shellcode has been written into memory to avoid RWX memory pages. 
 
