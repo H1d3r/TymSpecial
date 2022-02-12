@@ -1,26 +1,17 @@
 # TymSpecial Shellcode Loader
 
-### Credits / References
----
-- [Alternative Shellcode Exec](https://github.com/S4R1N/AlternativeShellcodeExec)
-- [SafeBreach Labs pinjectra](https://github.com/SafeBreach-Labs/pinjectra)
-- [Sektor7 Malware Development Courses](https://institute.sektor7.net/)
-- [SysWhispers2BOF](https://github.com/FalconForceTeam/SysWhispers2BOF) & [SysWhispers2](https://github.com/jthuraisamy/SysWhispers2)
-- [ired.team](https://www.ired.team/)
-
----
 ### Requirements
 ---
 - Python3
 - x86_64-w64-mingw32-g++ cross compiler
 
----
+
 ### Description
+---
 insert info about injection options, purple teaming use cases (thread not backed by file on disk), patching etw, etc...
 why some payloads dont always execute - APCs / Threads in alertable state....
 inject into process DA is running instead of dump LSASS
 
----
 ### Usage
 
 ```
@@ -64,6 +55,14 @@ optional arguments:
 Example Usage: python3 TymSpecial.py --input file.bin --method 6 --domainjoined --ram 8 --processors 4 --hideconsole --clonesig C:\\chad\\Desktop\\RealFile.exe --out threadhijacker
 Example Execution: C:\>threadhijacker.exe 20485
 ```
+
+### Credits / References
+---
+- [Alternative Shellcode Exec](https://github.com/S4R1N/AlternativeShellcodeExec)
+- [SafeBreach Labs pinjectra](https://github.com/SafeBreach-Labs/pinjectra)
+- [Sektor7 Malware Development Courses](https://institute.sektor7.net/)
+- [SysWhispers2BOF](https://github.com/FalconForceTeam/SysWhispers2BOF) & [SysWhispers2](https://github.com/jthuraisamy/SysWhispers2)
+- [ired.team](https://www.ired.team/)
 
 ## To Do:
 
