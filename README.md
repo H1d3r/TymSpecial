@@ -18,7 +18,7 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 
 - Self-decrypting shellcode is not supported as memory is allocated with RW permissions and then changed to RX after the shellcode has been written into memory to avoid RWX memory pages. 
 
-- Method 5 should be targeted against processes with a high thread count and I/O and is not always guaranteed to work. APCs will not execute until the thread is in an alertable state, Within a local process this is not an issue as we can can flush the queue via NtTestAlert, however, forcing a remote process to flush it's APC queue is not possible. Additionally, because an APC is queued into every thread it is likely you will get multiple callbacks
+- Method 5 is not always guaranteed to work and should be targeted against processes with a high thread count and I/O. APCs will not execute until the thread is in an alertable state, Within a local process this is not an issue as we can can flush the queue via NtTestAlert, however, forcing a remote process to flush it's APC queue is not possible. Additionally, because an APC is queued into every thread it is likely you will get multiple callbacks
 
 
 ### Usage
