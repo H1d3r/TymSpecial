@@ -67,10 +67,7 @@ Example Execution: C:\>threadhijacker.exe 20485
 
 ## To Do:
 ---
-- [ ] Implement module stomping
-- [ ] Add the option to compile to a DLL
-- [ ] Incorporate SigThief for signature cloning
 - [ ] Change memory permissions to RX from RWX
-- [ ] Debug anti-sandbox methods
+- [ ] Implement module stomping
+- [ ] Incorporate SigThief for signature cloning
 - [ ] Add unhooking of NTDLL
-- [ ] Get rid of netapi32.dll
