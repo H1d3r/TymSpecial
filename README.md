@@ -18,7 +18,8 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 
 - Provide a variety of malware techniques on purple team engagements
 - Inject into an existing process owned by a more privileged user to avoid interacting with LSASS
-- Inject into an existing process which normally produces network activity (web browsers, svchost, etc.) to blend C2 traffic 
+- Inject into an existing process which normally produces network activity (web browsers, svchost, etc.) to blend C2 traffic
+- An alternative to [ScareCrow](https://github.com/optiv/ScareCrow) against EDR products that can detect thread creation / module stomping
 
 #### Note: 
 
