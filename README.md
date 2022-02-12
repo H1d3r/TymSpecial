@@ -58,8 +58,8 @@ Example Execution: C:\>threadhijacker.exe 20485
 
 ### Credits / References
 ---
-- [Alternative Shellcode Exec](https://github.com/S4R1N/AlternativeShellcodeExec)
-- [SafeBreach Labs pinjectra](https://github.com/SafeBreach-Labs/pinjectra)
+- [AlternativeShellcodeExec](https://github.com/S4R1N/AlternativeShellcodeExec)
+- [SafeBreach Labs Pinjectra](https://github.com/SafeBreach-Labs/pinjectra)
 - [Sektor7 Malware Development Courses](https://institute.sektor7.net/)
 - [SysWhispers2BOF](https://github.com/FalconForceTeam/SysWhispers2BOF) & [SysWhispers2](https://github.com/jthuraisamy/SysWhispers2)
 - [ired.team](https://www.ired.team/)
