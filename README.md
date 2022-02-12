@@ -1,19 +1,23 @@
 # TymSpecial Shellcode Loader
 
+### Description
+---
+TymSpecial is a shellcode loader which utilizes SysWhispers to make direct syscalls to avoid user-land hooks. The loader takes raw x64 stageless shellcode as input and writes a temporary C++ stub to disk which is then compiled via g++.
+
+
+
+insert info about injection options, purple teaming use cases (thread not backed by file on disk), patching etw, etc...
+why some payloads dont always execute - APCs / Threads in alertable state....
+inject into process DA is running instead of dump LSASS
+
+
 ### Requirements
 ---
 - Python3
 - x86_64-w64-mingw32-g++ cross compiler
 
-
-### Description
----
-insert info about injection options, purple teaming use cases (thread not backed by file on disk), patching etw, etc...
-why some payloads dont always execute - APCs / Threads in alertable state....
-inject into process DA is running instead of dump LSASS
-
 ### Usage
-
+---
 ```
 usage: TymSpecial.py [-h] --input FILE --method NUMBER --out FILENAME [--etw] [--hideconsole] [--domainjoined] [--longsleep]
                      [--processors NUMBER] [--ram NUMBER] [--parent PROCESS] [--child PROCESS] [--clonesig FILE]
@@ -65,7 +69,7 @@ Example Execution: C:\>threadhijacker.exe 20485
 - [ired.team](https://www.ired.team/)
 
 ## To Do:
-
+---
 - [ ] Implement module stomping
 - [ ] Add the option to compile to a DLL
 - [ ] Incorporate SigThief for signature cloning
@@ -73,4 +77,3 @@ Example Execution: C:\>threadhijacker.exe 20485
 - [ ] Debug anti-sandbox methods
 - [ ] Add unhooking of NTDLL
 - [ ] Get rid of netapi32.dll
-- [ ] Add credits
