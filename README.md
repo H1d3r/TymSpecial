@@ -1,8 +1,6 @@
 # TymSpecial Shellcode Loader
 
 
-![vtcheck](/TymSpecial/vtcheck.png)
-
 ### Description
 ---
 This project was made as a way for myself to learn C++ and gain insight into how EDR products work.
@@ -15,6 +13,12 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 - Does the system have < X GB of RAM?
 - Does the system have < Y processors?
 - Are long sleeps fast forwarded?
+
+### Detection Ratings
+
+Currently all payloads have ~1-4 vendors detections on [VirusTotal](https://virustotal.com)
+
+![vtcheck](/TymSpecial/vtcheck.png)
 
 #### Use cases:
 
