@@ -71,7 +71,7 @@ optional arguments:
   --child PROCESS      Specify the process to spawn for injection into in method 4, example: --child svchost.exe
   --clonesig FILE      Specify a signed file to use for signature cloning, example: --clonesig C:\\chad\\Desktop\\SignedFile.exe
 
-Example Usage: python3 TymSpecial.py --input file.bin --method 6 --domainjoined --ram 8 --processors 4 --hideconsole --clonesig C:\\chad\\Desktop\\RealFile.exe --out threadhijacker
+Example Usage: python3 TymSpecial.py --input file.bin --method 6 --etw --domainjoined --ram 8 --processors 4 --hideconsole --clonesig C:\\chad\\Desktop\\RealFile.exe --out threadhijacker
 Example Execution: C:\>threadhijacker.exe 20485
 ```
 
