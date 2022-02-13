@@ -1220,7 +1220,7 @@ int main(int argc, char** argv) {
 def genkey():
     letters = string.ascii_letters
     key = ""
-    for i in range(5):
+    for i in range(7):
         z = random.choice(letters)
         key = key + z
     return key
