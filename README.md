@@ -18,8 +18,9 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 
 Depending on which method of execution is chosen there are approximately 2-5 AV/EDR vendors detecting the payloads on [VirusTotal](https://virustotal.com) when stageless Cobalt Strike shellcode is used with cloud fronting. Results may vary from VirusTotal as we do not have insight into how each product is configured on the back end. 
 
-
 ![vtcheck](/TymSpecial/vtcheck.png)
+
+![antiscan](/TymSpecial/scanme.png)
 
 #### Use cases:
 
