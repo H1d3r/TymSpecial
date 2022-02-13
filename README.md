@@ -16,7 +16,8 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 
 #### Detection Ratings
 
-Currently all payloads have approximately 1-4 AV/EDR vendor detections on [VirusTotal](https://virustotal.com)
+Depending on which method of execution is chosen there are approximately 2-5 AV/EDR vendors detecting the payloads on [VirusTotal](https://virustotal.com) when raw stageless Cobalt Strike shellcode is used with cloud fronting.
+
 
 ![vtcheck](/TymSpecial/vtcheck.png)
 
