@@ -14,9 +14,9 @@ TymSpecial offers multiple methods of execution via classic thread injection, Wi
 - Does the system have < Y processors?
 - Are long sleeps fast forwarded?
 
-### Detection Ratings
+#### Detection Ratings
 
-Currently all payloads have ~1-4 vendors detections on [VirusTotal](https://virustotal.com)
+Currently all payloads have approximately 1-4 AV/EDR vendor detections on [VirusTotal](https://virustotal.com)
 
 ![vtcheck](/TymSpecial/vtcheck.png)
 
