@@ -5,6 +5,8 @@
 ---
 This project was made as a way for myself to learn C++ and gain insight into how EDR products work.
 
+![vtcheck](/TymSpecial/vtcheck.png)
+
 TymSpecial is a shellcode loader which utilizes SysWhispers to make direct syscalls and avoid user-land hooks. The loader takes raw x64 stageless shellcode as input which is then XOR encrypted with a random key and writes a temporary C++ stub to disk and is compiled via g++ to produce an executable. 
 
 TymSpecial offers multiple methods of execution via classic thread injection, Windows callback functions, APC queues, and thread hijacking. Additonally, there is an option to patch EtwEventWrite in the local and remote process and there are 4 anti-sandboxing checks which can enabled including:
