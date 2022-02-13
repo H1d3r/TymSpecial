@@ -25,7 +25,7 @@ Depending on which method of execution is chosen there are approximately 2-5 AV/
 #### Use cases:
 
 - Provide a variety of malware techniques on purple team engagements
-- Inject into an existing process owned by a more privileged user to avoid interacting with LSASS
+- Inject into an existing process owned by a more privileged user to escalate privileges and avoid interacting with LSASS
 - Inject into an existing process which normally produces network activity (web browsers, svchost, etc.) to blend C2 traffic
 - An alternative to [ScareCrow](https://github.com/optiv/ScareCrow) when module stomping & thread creation does not work.
 
