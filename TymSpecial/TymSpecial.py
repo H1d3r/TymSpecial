@@ -34,7 +34,7 @@ parser.add_argument("--processors", metavar="NUMBER", help="Anti-Sandbox Check: 
 parser.add_argument("--ram", metavar="NUMBER", help="Anti-Sandbox Check: If the amount of RAM is < X GB, exit")
 parser.add_argument("--parent", metavar="PROCESS", default="explorer.exe", help="Specify the parent process for PPID spoofing, example --parent explorer.exe")
 parser.add_argument("--child", metavar="PROCESS", default="svchost.exe", help="Specify the process to spawn for injection into, example: --child svchost.exe")
-parser.add_argument("--domain", metavar="FILE", help="Specify a signed file to use for signature cloning, example: --clonesig C:\\\\chad\\\\Desktop\\\\SignedFile.exe")
+parser.add_argument("--domain", metavar="FILE", help="Specify a domain to use for signture cloning via CarbonCopy, example: --domain cisco.com")
 
 args = parser.parse_args()
 iFile = args.input
