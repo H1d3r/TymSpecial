@@ -72,7 +72,7 @@ optional arguments:
   --child PROCESS      Specify the process to spawn for injection into in method 4, example: --child svchost.exe
   --domain FILE        Specify a domain to sign the file with a spoofed code signing certificate, example: --domain cisco.com (NOT YET IMPLEMENTED)
 
-Example Usage: python3 TymSpecial.py --input file.bin --method 6 --etw --domainjoined --ram 8 --processors 4 --hideconsole --clonesig C:\\chad\\Desktop\\RealFile.exe --out threadhijacker
+Example Usage: python3 TymSpecial.py --input file.bin --method 6 --etw --domainjoined --ram 8 --processors 4 --hideconsole --domain cisco.com --out threadhijacker
 Example Execution: C:\>threadhijacker.exe 20485
 ```
 
