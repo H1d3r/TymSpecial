@@ -1316,6 +1316,3 @@ def main():
     os.system("rm temp.cpp")
     os.system("chmod +x CarbonCopy.py")
     os.system("./CarbonCopy.py " + domain + " 443 " + output + ".exe " + output + "-signed.exe") 
-
-
-main()
