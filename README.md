@@ -90,5 +90,5 @@ Example Execution: C:\>threadhijacker.exe 20485
 ## To Do:
 ---
 - [ ] Implement module stomping
-- [ ] Incorporate CarbonCopy for signature cloning
+- [ ] Incorporate CarbonCopy for code signing certificate spoofing
 - [ ] Add the option to unhook ntdll
