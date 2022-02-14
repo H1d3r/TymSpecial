@@ -70,7 +70,7 @@ optional arguments:
   --ram NUMBER         Anti-Sandbox Check: If the amount of RAM is < X GB, exit
   --parent PROCESS     Specify the parent process for PPID spoofing in method 4, example --parent explorer.exe
   --child PROCESS      Specify the process to spawn for injection into in method 4, example: --child svchost.exe
-  --clonesig FILE      Specify a signed file to use for signature cloning, example: --clonesig C:\\chad\\Desktop\\SignedFile.exe
+  --domain FILE      Specify a domain to sign the file with a spoofed code signing certificate, example: --domain cisco.com
 
 Example Usage: python3 TymSpecial.py --input file.bin --method 6 --etw --domainjoined --ram 8 --processors 4 --hideconsole --clonesig C:\\chad\\Desktop\\RealFile.exe --out threadhijacker
 Example Execution: C:\>threadhijacker.exe 20485
@@ -90,5 +90,5 @@ Example Execution: C:\>threadhijacker.exe 20485
 ## To Do:
 ---
 - [ ] Implement module stomping
-- [ ] Incorporate SigThief for signature cloning
+- [ ] Incorporate CarbonCopy for signature cloning
 - [ ] Add the option to unhook ntdll
