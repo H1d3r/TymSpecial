@@ -1315,3 +1315,4 @@ def main():
     os.system("x86_64-w64-mingw32-g++ temp.cpp netapi32.dll -w -masm=intel -fpermissive -static -Wl,--subsystem,windows -O0 -o " + output + ".exe")
     os.system("rm temp.cpp")
 
+main()
