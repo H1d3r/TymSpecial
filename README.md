@@ -38,7 +38,7 @@ Depending on which method of execution is chosen there are approximately 2-5 AV/
 
 ### Requirements
 ---
-This script works works on Linux systems with the following installed:
+This script works on Linux systems only with the following installed:
 
 - Python3
 
