@@ -99,3 +99,4 @@ Example Execution: C:\>threadhijacker.exe 20485
 ---
 - [ ] Implement module stomping
 - [ ] Add the option to unhook ntdll
+- [ ] Encrypt shellcode at rest via hooking sleep
