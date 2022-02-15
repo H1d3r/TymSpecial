@@ -38,8 +38,10 @@ Depending on which method of execution is chosen there are approximately 2-5 AV/
 
 ### Requirements
 ---
-This script is to be ran on Linux systems with the following installed:
+This script works works on Linux systems with the following installed:
+
 - Python3
+
 - x86_64-w64-mingw32-g++ cross compiler
 
 pyopenssl & osslsigncode are only required if the domain argument is passed for CarbonCopy usage
@@ -98,5 +100,6 @@ Example Execution: C:\>threadhijacker.exe 20485
 ## To Do:
 ---
 - [ ] Implement module stomping
-- [ ] Add the option to unhook ntdll
+- [ ] Add the option to unhook ntdll & kernel32
 - [ ] Encrypt shellcode at rest via hooking sleep
+
