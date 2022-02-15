@@ -42,7 +42,7 @@ This script is to be ran on Linux systems with the following installed:
 - Python3
 - x86_64-w64-mingw32-g++ cross compiler
 
-- pyopenss & osslsigncode are only required if the domain argument is passed
+pyopenss & osslsigncode are only required if the domain argument is passed
 
 - ```apt-get install osslsigncode```
 
