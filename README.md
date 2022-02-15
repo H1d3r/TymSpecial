@@ -42,7 +42,7 @@ This script is to be ran on Linux systems with the following installed:
 - Python3
 - x86_64-w64-mingw32-g++ cross compiler
 
-pyopenssl & osslsigncode are only required if the domain argument is passed
+pyopenssl & osslsigncode are only required if the domain argument is passed for CarbonCopy usage
 
 - ```apt-get install osslsigncode```
 
