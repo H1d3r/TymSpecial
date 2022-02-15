@@ -79,6 +79,7 @@ Example Execution: C:\>threadhijacker.exe 20485
 
 ### Credits / References
 ---
+- [CarbonCopy](https://github.com/paranoidninja/CarbonCopy)
 - [AlternativeShellcodeExec](https://github.com/S4R1N/AlternativeShellcodeExec)
 - [SafeBreach Labs Pinjectra](https://github.com/SafeBreach-Labs/pinjectra)
 - [Sektor7 Malware Development Courses](https://institute.sektor7.net/)
@@ -90,6 +91,5 @@ Example Execution: C:\>threadhijacker.exe 20485
 ## To Do:
 ---
 - [ ] Implement module stomping
-- [ ] Incorporate CarbonCopy for code signing certificate spoofing
 - [ ] Add the option to unhook ntdll
 - [ ] Add more anti-sandboxing options (file exists, VirtualAllocExNuma, etc.)
