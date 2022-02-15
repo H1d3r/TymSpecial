@@ -92,4 +92,3 @@ Example Execution: C:\>threadhijacker.exe 20485
 ---
 - [ ] Implement module stomping
 - [ ] Add the option to unhook ntdll
-- [ ] Add more anti-sandboxing options (file exists, VirtualAllocExNuma, etc.)
