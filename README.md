@@ -44,9 +44,9 @@ This script is to be ran on Linux systems with the following installed:
 
 - pyopenss & osslsigncode are only required if the domain argument is passed
 
-```apt-get install osslsigncode```
+- ```apt-get install osslsigncode```
 
-```pip3 install pyopenssl```
+- ```pip3 install pyopenssl```
 
 
 ### Usage
