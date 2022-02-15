@@ -38,9 +38,13 @@ Depending on which method of execution is chosen there are approximately 2-5 AV/
 
 ### Requirements
 ---
-This script should work on Linux systems with the following installed:
+This script is to be ran on Linux systems with the following installed:
 - Python3
 - x86_64-w64-mingw32-g++ cross compiler
+
+- pyopenss & osslsigncode are only required if the domain argument is passed
+```apt-get install osslsigncode```
+```pip3 install pyopenssl```
 
 
 ### Usage
