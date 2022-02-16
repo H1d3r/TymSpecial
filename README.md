@@ -100,6 +100,7 @@ Example Execution: C:\>signed-threadhijacker.exe 20485
 - [SafeBreach Labs Pinjectra](https://github.com/SafeBreach-Labs/pinjectra) - Documents various types of process injection methods
 - [ired.team](https://www.ired.team/) - Source code snippets & detailed walkthroughs for various red teaming methods
 - [UnknownCheats.me](https://unknowncheats.me) - Game cheats use similar methods to AV/EDR evasion techniques
+- [ScareCrow](https://github.com/optiv/ScareCrow) - Payload generation framework focused on evading EDRs
 
 
 ## To Do:
