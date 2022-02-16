@@ -108,4 +108,5 @@ Example Execution: C:\>signed-threadhijacker.exe 20485
 - [ ] Add the option to unhook ntdll & kernel32
 - [ ] Encrypt shellcode at rest via hooking sleep
 - [ ] Modify file attributes
+- [ ] Change sleep timer to randomly generated var X between 90-120, and check if sleep is atleast X-5 
 
