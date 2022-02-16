@@ -89,13 +89,13 @@ Example Execution: C:\>threadhijacker.exe 20485
 ### Credits / References
 ---
 
-##### Used within this project
+#### Used within this project:
 - [CarbonCopy](https://github.com/paranoidninja/CarbonCopy) - Python script to spoof code signing certificates
 - [SysWhispers2BOF](https://github.com/FalconForceTeam/SysWhispers2BOF) & [SysWhispers2](https://github.com/jthuraisamy/SysWhispers2) - Generates assembly for syscalls stubs 
 - [CheckPlease](https://github.com/Arvanaghi/CheckPlease) - Includes different methods for anti-sandboxing in multiple languages
 - [AlternativeShellcodeExec](https://github.com/S4R1N/AlternativeShellcodeExec) - Showcases alternative methods of execution via Windows callback functions
 - 
-#### Other resources
+#### Other resources:
 - [Sektor7 Malware Development Courses](https://institute.sektor7.net/) - Great courses to learn malware development & EDR evasion techniques
 - [SafeBreach Labs Pinjectra](https://github.com/SafeBreach-Labs/pinjectra) - Documents various types of process injection methods
 - [ired.team](https://www.ired.team/) - Source code snippets & detailed walkthroughs for various red teaming methods
