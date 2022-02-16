@@ -19,7 +19,7 @@ Shellcode loader which offers multiple execution methods via syscalls and anti-s
 
 epilog = """
 Example Usage: python3 TymSpecial.py --input file.bin --method 6 --etw --domainjoined --ram 8 --processors 4 --hideconsole --domain cisco.com --out threadhijacker
-Example Execution: C:\>threadhijacker.exe 20485
+Example Execution: C:\>signed-threadhijacker.exe 20485
 """
 
 parser = argparse.ArgumentParser(description=description, epilog=epilog,
