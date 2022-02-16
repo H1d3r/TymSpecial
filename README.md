@@ -33,7 +33,7 @@ Depending on which method of execution is chosen there are approximately 2-5 AV/
 
 - Self-decrypting shellcode is not supported as memory is allocated with RW permissions and then changed to RX after the shellcode has been written into memory to avoid RWX memory pages. 
 
-- Method 5 is not always guaranteed to work and should be targeted against processes with a high thread count and I/O. This is because APCs will not execute until the thread is in an alertable state. Within a local process such as method 2 this is not an issue as we can can force threads into an alertable state via NtTestAlert, however, forcing a remote process to flush it's APC queues is not possible. Additionally, because an APC is queued into every thread it is likely you will get multiple callbacks.
+- Method 5 is not always guaranteed to work and should be targeted against processes with a high thread count and I/O. This is because APCs will not execute until the thread is in an alertable state. Within a local process such as method 2 this is not an issue as we can can force threads into an alertable state via NtTestAlert, however, forcing a remote process to flush it's APC queues is not possible (to my knowledge). Additionally, because an APC is queued into every thread it is likely you will get multiple callbacks.
 
 
 ### Requirements
