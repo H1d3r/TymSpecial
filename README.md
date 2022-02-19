@@ -20,7 +20,7 @@ Depending on which method of execution is chosen there are approximately 2-5 AV/
 
 Results may vary from VirusTotal as we do not have insight into how each product is configured on the back end. 
 
-![vtcheck](/images/VTCheck.png)
+![vtcheck](/images/vt-results.png)
 
 ![antiscan](/images/scanme.png)
 
@@ -111,5 +111,5 @@ Example Execution: C:\>signed-threadhijacker.exe 20485
 - [ ] Add the option to unhook ntdll & kernel32
 - [ ] Encrypt shellcode at rest via hooking sleep
 - [ ] Modify file attributes
-- [ ] Change sleep timer to randomly generated var X between 90-120, and check if sleep is atleast X-5 
+- [ ] Change sleep to prime number calculation
 
