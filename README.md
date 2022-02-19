@@ -22,7 +22,7 @@ Results may vary from VirusTotal as we do not have insight into how each product
 
 ![vtcheck](/images/vt-result.png)
 
-![antiscan](/images/scanme.png)
+![antiscan](/images/scanm.png)
 
 #### Use cases:
 
