@@ -20,9 +20,9 @@ Depending on which method of execution is chosen there are approximately 1-5 AV/
 
 Results may vary from VirusTotal as we do not have insight into how each product is configured on the back end. 
 
-![vtcheck](/images/vt-result.png)
+![vtcheck](/images/virustotal-results.png)
 
-![antiscan](/images/scanm.png)
+![antiscan](/images/scanme-results.png)
 
 #### Use cases:
 
