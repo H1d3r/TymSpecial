@@ -81,7 +81,7 @@ optional arguments:
   --ram NUMBER         Anti-Sandbox Check: If the amount of RAM is < X GB, exit
   --parent PROCESS     Specify the parent process for PPID spoofing in method 4, example --parent explorer.exe
   --child PROCESS      Specify the process to spawn for injection into in method 4, example: --child svchost.exe
-  --domain DOMAIN        Specify a domain to sign the file with a spoofed code signing certificate via CarbonCopy, example: --domain cisco.com
+  --domain DOMAIN      Specify a domain to sign the file with a spoofed code signing certificate via CarbonCopy, example: --domain cisco.com
 
 Example Usage: python3 TymSpecial.py --input file.bin --method 6 --etw --domainjoined --ram 8 --processors 4 --hideconsole --domain cisco.com --out threadhijacker
 Example Execution: C:\>signed-threadhijacker.exe 20485
