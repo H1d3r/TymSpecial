@@ -24,12 +24,6 @@ Results may vary from VirusTotal as we do not have insight into how each product
 
 ![antiscan](/images/scanme-results.png)
 
-#### Use cases:
-
-- Provide a variety of malware techniques on purple team engagements
-- Inject into an existing process owned by a more privileged user to escalate privileges and avoid interacting with LSASS
-- Inject into an existing process which normally produces network activity (web browsers, svchost, etc.) to blend C2 traffic
-- An alternative to [ScareCrow](https://github.com/optiv/ScareCrow) when module stomping & thread creation does not work.
 
 #### Note: 
 
