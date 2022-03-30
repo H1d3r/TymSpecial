@@ -1173,7 +1173,7 @@ def main():
     template.close()
     print("[+] C++ stub written to disk: temp.cpp")
 
-    os.system("x86_64-w64-mingw32-g++ temp.cpp netapi32.dll -w -masm=intel -fpermissive -static -Wl,--subsystem,windows -O0 -o " + output + ".exe")
+    os.system("x86_64-w64-mingw32-g++ temp.cpp netapi32.dll -w -masm=intel -fpermissive -static -Wl,--subsystem,windows -O2 -o " + output + ".exe")
     os.system("rm temp.cpp")
     print("[+] C++ stub compiled & temporary stub removed")
 
