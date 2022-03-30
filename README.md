@@ -34,7 +34,7 @@ Results may vary from VirusTotal as we do not have insight into how each product
 
 ### Requirements
 ---
-This script works on Linux systems only with the following installed:
+This script was tested on Kali Linux with the following installed:
 
 - Python3
 
