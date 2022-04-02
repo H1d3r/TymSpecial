@@ -1179,7 +1179,6 @@ def main():
 
     if domain:
         print("[+] Attempting to add a spoofed code signing certificate via CarbonCopy - github.com/paranoidninja/CarbonCopy\n")
-        time.sleep(2)
         os.system("chmod +x CarbonCopy.py")
         os.system("./CarbonCopy.py " + domain + " 443 " + output + ".exe" + " signed-" + output + ".exe")
         os.system("rm " + output + ".exe")  
