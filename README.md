@@ -92,7 +92,7 @@ Example Execution: C:\>signed-threadhijacker.exe 20485
 - [AlternativeShellcodeExec](https://github.com/S4R1N/AlternativeShellcodeExec) - Showcases alternative methods of execution via Windows callback functions
 
 #### Other resources:
-- [Sektor7 Malware Development Courses](https://institute.sektor7.net/) - Great courses to learn malware development & EDR evasion techniques
+- [Sektor7 Courses](https://institute.sektor7.net/) - Great courses to learn malware development & EDR evasion techniques
 - [SafeBreach Labs Pinjectra](https://github.com/SafeBreach-Labs/pinjectra) - Documents various types of process injection methods
 - [ired.team](https://www.ired.team/) - Source code snippets & detailed walkthroughs for various red teaming methods
 - [UnknownCheats.me](https://unknowncheats.me) - Game cheats use similar methods to AV/EDR evasion techniques
