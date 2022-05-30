@@ -3,7 +3,7 @@
 
 ### Description
 ---
-This project was made as a way for myself to learn C++ and gain insight into how EDR products work.
+PoC Code which is now heavily signatured. 
 
 TymSpecial is a shellcode loader which utilizes SysWhispers to make direct syscalls and avoid user-land hooks. The loader takes raw x64 stageless shellcode as input which is then XOR encrypted with a random key and writes a temporary C++ stub to disk which is compiled via g++ to produce an executable. 
 
